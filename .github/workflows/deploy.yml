@@ -17,4 +17,4 @@ jobs:
       env:
         SERVER_IP: ${{ secrets.SERVER_IP }}
       run: |
-        ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} user@${3.89.136.9} 'echo "Hello from the UBUNTU server!"'
+        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ubuntu@${3.89.136.9} 'echo "Hello from the UBUNTU server!"'
