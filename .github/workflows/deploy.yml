@@ -16,7 +16,7 @@ jobs:
     - name: SSH Agent Setup
       uses: webfactory/ssh-agent@v0.5.1
       with:
-        ssh-private-key: ${{ secrets.AWS Ubuntu Server }}
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Deploy to Server
       run: |
