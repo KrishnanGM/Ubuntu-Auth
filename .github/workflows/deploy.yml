@@ -17,4 +17,4 @@ jobs:
       env:
         SERVER_IP: ${{ secrets.SERVER_IP }}
       run: |
-        ssh -o StrictHostKeyChecking=no -i C:/Users/91900/.ssh/id_rsa ubuntu@3.89.136.9 'echo "Hello from the server!"'
+        ssh -o StrictHostKeyChecking=no -i "C:\Users\91900\.ssh\id_rsa" ubuntu@3.89.136.9 'echo "Hello from the server!"'
