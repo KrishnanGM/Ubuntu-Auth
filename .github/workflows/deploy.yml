@@ -1,0 +1,23 @@
+name: Deploy to AWS Ubuntu Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: SSH Agent Setup
+      uses: webfactory/ssh-agent@v0.5.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to Server
+      run: |
+        ssh ubuntu@3.89.136.9 'sudo apt update && sudo apt upgrade -y'
