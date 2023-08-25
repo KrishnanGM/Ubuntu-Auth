@@ -1,4 +1,4 @@
-name: Deploy to AWS Ubuntu Server
+name: Deploy to AWS
 
 on:
   push:
@@ -10,14 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-    - name: SSH Agent Setup
-      uses: webfactory/ssh-agent@v0.5.1
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-    - name: Deploy to Server
+    - name: Run command on server
+      env:
+        SERVER_IP: ${{ secrets.SERVER_IP }}
       run: |
-        ssh ubuntu@3.89.136.9 'sudo apt update && sudo apt upgrade -y'
+        ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} user@${3.89.136.9} 'echo "Hello from the UBUNTU server!"'
